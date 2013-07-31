@@ -1,0 +1,4 @@
+*** Nivo Lightbox Changelog ***
+
+2013.08.01 - version 1.0
+ * Initial release

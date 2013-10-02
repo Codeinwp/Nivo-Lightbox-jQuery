@@ -83,8 +83,9 @@
 				var $this = this,
 						galleryItems = $('[data-lightbox-gallery="' + this.$el.attr('data-lightbox-gallery') + '"]');
 
-				$('.nivo-lightbox-nav').show();
+
 				if (galleryItems.length > 1) {
+					$('.nivo-lightbox-nav').show();
 					// Prev
 					$('.nivo-lightbox-prev').off('click').on('click', function (e) {
 						e.preventDefault();

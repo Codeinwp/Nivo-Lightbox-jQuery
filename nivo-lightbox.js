@@ -81,28 +81,29 @@
 	        if(this.$el.attr('data-lightbox-gallery')){
 		        var $this = this,
 		        	galleryItems = $('[data-lightbox-gallery="'+ this.$el.attr('data-lightbox-gallery') +'"]');
-		        
-		        $('.nivo-lightbox-nav').show();
-
-				// Prev
-		        $('.nivo-lightbox-prev').off('click').on('click', function(e){
-		        	e.preventDefault();
-		        	var index = galleryItems.index(currentLink);
-		        	currentLink = galleryItems.eq(index - 1);
-		        	if(!$(currentLink).length) currentLink = galleryItems.last();
-		        	$this.processContent(content, currentLink);
-		        	$this.options.onPrev.call(this, [ currentLink ]);
-		        });
-		        
-		        // Next
-		        $('.nivo-lightbox-next').off('click').on('click', function(e){
-		        	e.preventDefault();
-		        	var index = galleryItems.index(currentLink);
-		        	currentLink = galleryItems.eq(index + 1);
-		        	if(!$(currentLink).length) currentLink = galleryItems.first();
-		        	$this.processContent(content, currentLink);
-		        	$this.options.onNext.call(this, [ currentLink ]);
-		        });
+		        if (galleryItems.length > 1) {
+			        $('.nivo-lightbox-nav').show();
+	
+					// Prev
+			        $('.nivo-lightbox-prev').off('click').on('click', function(e){
+			        	e.preventDefault();
+			        	var index = galleryItems.index(currentLink);
+			        	currentLink = galleryItems.eq(index - 1);
+			        	if(!$(currentLink).length) currentLink = galleryItems.last();
+			        	$this.processContent(content, currentLink);
+			        	$this.options.onPrev.call(this, [ currentLink ]);
+			        });
+			        
+			        // Next
+			        $('.nivo-lightbox-next').off('click').on('click', function(e){
+			        	e.preventDefault();
+			        	var index = galleryItems.index(currentLink);
+			        	currentLink = galleryItems.eq(index + 1);
+			        	if(!$(currentLink).length) currentLink = galleryItems.first();
+			        	$this.processContent(content, currentLink);
+			        	$this.options.onNext.call(this, [ currentLink ]);
+			        });
+		        }
 	        }
 	        
 	        setTimeout(function(){

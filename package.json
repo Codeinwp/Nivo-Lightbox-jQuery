@@ -1,0 +1,22 @@
+{
+	"name": "Nivo-Lightbox",
+	"version": "1.0.0",
+	"description": "A simple, flexible, responsive, retina-ready jQuery lightbox plugin",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/gilbitron/Nivo-Lightbox.git"
+	},
+	"keywords": ["lightbox", "jQuery", "plugin"],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/gilbitron/Nivo-Lightbox/issues"
+	},
+	"dependencies": {
+		"grunt-bump": "0.0.11",
+		"grunt-contrib-uglify": "~0.2.4"
+	},
+	"devDependencies": {
+		"grunt": "~0.4.1"
+	}
+}

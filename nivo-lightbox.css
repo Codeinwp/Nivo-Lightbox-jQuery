@@ -1,12 +1,12 @@
 /*
- * Nivo Lightbox v1.0
+ * Nivo Lightbox v1.1
  * http://dev7studios.com/nivo-lightbox
  *
  * Copyright 2013, Dev7studios
  * Free to use and abuse under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  */
- 
+
 .nivo-lightbox-overlay {
 	position: fixed;
 	top: 0;
@@ -21,7 +21,7 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.nivo-lightbox-overlay.nivo-lightbox-open { 
+.nivo-lightbox-overlay.nivo-lightbox-open {
 	visibility: visible;
 	opacity: 1;
 }
@@ -73,9 +73,10 @@
 	width: 100%;
 	height: 100%;
 }
-.nivo-lightbox-ajax { 
+.nivo-lightbox-inline,
+.nivo-lightbox-ajax {
 	max-height: 100%;
-	overflow: auto; 
+	overflow: auto;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -94,15 +95,15 @@
 	vertical-align: middle;
 }
 
-/* Effects 
+/* Effects
  **********************************************/
-.nivo-lightbox-effect-fade,
-.nivo-lightbox-effect-fadeScale,
-.nivo-lightbox-effect-slideLeft,
-.nivo-lightbox-effect-slideRight,
-.nivo-lightbox-effect-slideUp,
-.nivo-lightbox-effect-slideDown,
-.nivo-lightbox-effect-fall {
+.nivo-lightbox-notouch .nivo-lightbox-effect-fade,
+.nivo-lightbox-notouch .nivo-lightbox-effect-fadeScale,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideLeft,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideRight,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideUp,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideDown,
+.nivo-lightbox-notouch .nivo-lightbox-effect-fall {
 	-webkit-transition: all 0.2s ease-in-out;
 	   -moz-transition: all 0.2s ease-in-out;
 	    -ms-transition: all 0.2s ease-in-out;

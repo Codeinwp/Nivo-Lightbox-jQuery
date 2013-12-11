@@ -1,4 +1,12 @@
 *** Nivo Lightbox Changelog ***
 
+2013.12.11 - version 1.1
+ * [New] Added the clickOverlayToClose setting
+ * [New] Uppercase image extensions are now supported
+ * [Fixed] Can't click anywhere after opening video bug
+ * [Fixed] Doesn't work in iOS bug
+ * [Fixed] Youtube hyphen in URL bug
+ * [Fixed] Inline content overflow bug
+
 2013.08.01 - version 1.0
  * Initial release

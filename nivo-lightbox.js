@@ -48,8 +48,7 @@
 
 			// Setup the click
             this.$el.on('click', function(e){
-            	e.preventDefault();
-            	$this.showLightbox();
+            	$this.showLightbox( e );
             });
 
             // keyboardNav
@@ -69,19 +68,27 @@
 
         },
 
-        showLightbox: function(){
+        showLightbox: function( e ){
         	var $this = this;
         	this.options.beforeShowLightbox.call(this);
+
+			var currentLink = this.$el;
+
+			// check content
+			var check = this.checkContent( currentLink );
+
+			if ( ! check ) return;
+
+			e.preventDefault();
 
             var lightbox = this.constructLightbox();
             if(!lightbox) return;
             var content = lightbox.find('.nivo-lightbox-content');
             if(!content) return;
-            var currentLink = this.$el;
+
             $('body').addClass('nivo-lightbox-body-effect-'+ this.options.effect);
 
-	        // Add content
-	        this.processContent(content, currentLink);
+			this.processContent( content, currentLink );
 
 	        // Nav
 	        if(this.$el.attr('data-lightbox-gallery')){
@@ -116,6 +123,33 @@
 	        	$this.options.afterShowLightbox.call(this, [ lightbox ]);
 	        }, 1); // For CSS transitions
         },
+
+		checkContent: function( link ) {
+			var $this = this;
+			var href = link.attr('href');
+
+			if(href.match(/\.(jpeg|jpg|gif|png)$/i) != null){
+				return true;
+			}
+			// Video (Youtube/Vimeo)
+			else if(video = href.match(/(youtube|youtu|vimeo)\.(com|be)\/(watch\?v=([\w-]+)|([\w-]+))/)){
+				return true;
+			}
+			// AJAX
+			else if(link.attr('data-lightbox-type') == 'ajax'){
+				return true;
+			}
+			// Inline HTML
+			else if(href.substring(0, 1) == '#' && link.attr('data-lightbox-type') == 'inline'){
+				return true;
+			}
+			// iFrame (default)
+			else if(link.attr('data-lightbox-type') == 'iframe'){
+				return true;
+			}
+
+			return false;
+		},
 
         processContent: function(content, link){
         	var $this = this;
@@ -222,7 +256,7 @@
 				});
 	        }
 	        // Inline HTML
-	        else if(href.substring(0, 1) == '#'){
+	        else if(href.substring(0, 1) == '#' && link.attr('data-lightbox-type') == 'inline'){
 	        	if($(href).length){
 		        	var wrap = $('<div class="nivo-lightbox-inline" />');
 					wrap.append($(href).clone().show());
@@ -251,7 +285,7 @@
 				}
 	        }
 	        // iFrame (default)
-	        else {
+	        else if(link.attr('data-lightbox-type') == 'iframe'){
 		        var iframe = $('<iframe>', {
 		        	src: href,
 		        	'class': 'nivo-lightbox-item',
@@ -262,7 +296,9 @@
 		        });
 		        content.html(iframe);
 		        iframe.load(function(){ content.removeClass('nivo-lightbox-loading'); });
-	        }
+	        } else {
+				return false;
+			}
 
 	        // Set the title
 	        if(link.attr('title')){

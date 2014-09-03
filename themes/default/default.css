@@ -6,6 +6,12 @@
  * Free to use and abuse under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  */
+
+.nivo-lightbox-theme-default * {
+	-webkit-box-sizing: initial !important;
+	-moz-box-sizing: initial !important;
+	box-sizing: initial !important;
+}
  
 .nivo-lightbox-theme-default.nivo-lightbox-overlay { 
 	background: #666;

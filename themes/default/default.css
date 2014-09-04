@@ -10,7 +10,7 @@
 .nivo-lightbox-theme-default * {
 	-webkit-box-sizing: initial !important;
 	-moz-box-sizing: initial !important;
-	box-sizing: initial !important;
+	box-sizing: content-box !important;
 }
  
 .nivo-lightbox-theme-default.nivo-lightbox-overlay { 

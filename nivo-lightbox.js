@@ -123,7 +123,7 @@
 		checkContent: function( link ) {
 			var $this = this,
                 href = link.attr('href'),
-                video = href.match(/(youtube|youtu|vimeo)\.(com|be)\/(watch\?v=([\w-]+)|([\w-]+))/);
+                video = href.match(/(youtube|youtu|vimeo)\.(com|be)\/(watch\?v=([\w-]+)|([\w-]+))\/([\w]+)?([\S]+)/);
 
             if(href.match(/\.(jpeg|jpg|gif|png)$/i) !== null){
 				return true;
@@ -151,7 +151,7 @@
         processContent: function(content, link){
             var $this = this,
                 href = link.attr('href'),
-                video = href.match(/(youtube|youtu|vimeo)\.(com|be)\/(watch\?v=([\w-]+)|([\w-]+))/);
+                video = href.match(/(youtube|youtu|vimeo)\.(com|be)\/(watch\?v=([\w-]+)|([\w-]+))\/([\w]+)?([\S]+)/);
 
             content.html('').addClass('nivo-lightbox-loading');
 
@@ -194,11 +194,11 @@
                     classTerm = 'nivo-lightbox-video';
 
                 if(video[1] == 'youtube'){
-                    src = 'http://www.youtube.com/embed/'+ video[4];
+                    src = 'http://www.youtube.com/embed/'+ video[6]+ video[7];
                     classTerm = 'nivo-lightbox-youtube';
                 }
                 if(video[1] == 'youtu'){
-                    src = 'http://www.youtube.com/embed/'+ video[3];
+                    src = 'http://www.youtube.com/embed/'+ video[6]+ video[7];
                     classTerm = 'nivo-lightbox-youtube';
                 }
                 if(video[1] == 'vimeo'){

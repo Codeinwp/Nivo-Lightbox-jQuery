@@ -20,7 +20,9 @@
             afterShowLightbox: function(lightbox){},
             beforeHideLightbox: function(){},
             afterHideLightbox: function(){},
+            beforePrev: function(element){},
             onPrev: function(element){},
+            beforeNext: function(element){},
             onNext: function(element){},
             errorMessage: 'The requested content cannot be loaded. Please try again later.'
         };
@@ -99,8 +101,10 @@
                     var index = galleryItems.index(currentLink);
                     currentLink = galleryItems.eq(index - 1);
                     if(!$(currentLink).length) currentLink = galleryItems.last();
-                    $this.processContent(content, currentLink);
-                    $this.options.onPrev.call(this, [ currentLink ]);
+                    $.when($this.options.beforePrev.call(this, [ currentLink ])).done(function(){
+                        $this.processContent(content, currentLink); 
+                        $this.options.onPrev.call(this, [ currentLink ]);
+                    });
                 });
 
                 // Next
@@ -109,8 +113,10 @@
                     var index = galleryItems.index(currentLink);
                     currentLink = galleryItems.eq(index + 1);
                     if(!$(currentLink).length) currentLink = galleryItems.first();
-                    $this.processContent(content, currentLink);
-                    $this.options.onNext.call(this, [ currentLink ]);
+                    $.when($this.options.beforeNext.call(this, [ currentLink ])).done(function(){
+                        $this.processContent(content, currentLink); 
+                        $this.options.onNext.call(this, [ currentLink ]);
+                    });
                 });
             }
 

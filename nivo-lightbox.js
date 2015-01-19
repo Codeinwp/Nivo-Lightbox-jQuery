@@ -14,6 +14,7 @@
             effect: 'fade',
             theme: 'default',
             keyboardNav: true,
+            clickImgToClose: false,
             clickOverlayToClose: true,
             onInit: function(){},
             beforeShowLightbox: function(){},
@@ -162,7 +163,7 @@
 
             // Image
             if(href.match(/\.(jpeg|jpg|gif|png)$/i) !== null){
-                var img = $('<img>', { src: href });
+                var img = $('<img>', { src: href, 'class': 'nivo-lightbox-image-display' });
                 img.one('load', function() {
 					var wrap = $('<div class="nivo-lightbox-image" />');
                     wrap.append(img);
@@ -336,7 +337,14 @@
                     }
                 });
             }
-
+            if($this.options.clickImgToClose){
+                overlay.on('click', function(e){
+                    if(e.target === this || $(e.target).hasClass('nivo-lightbox-image-display')){
+                        $this.destructLightbox();
+                    }
+                });
+            }
+            
             close.on('click', function(e){
                 e.preventDefault();
                 $this.destructLightbox();

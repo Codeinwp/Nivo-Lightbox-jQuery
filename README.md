@@ -1,3 +1,5 @@
+**Maintainer's Wanted!** - Ineterested in contributing regularly to Nivo Lightbox development? [Get in touch](https://dev7studios.com/support/contact/)
+
 Nivo Lightbox
 =============
 

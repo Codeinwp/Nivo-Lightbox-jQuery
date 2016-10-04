@@ -1,5 +1,12 @@
 *** Nivo Lightbox Changelog ***
 
+2016.10.04 - version 1.3.0
+ * [New] Added `beforePrev` and `beforeNext` callbacks to allow custom transitions
+ * [New] Added `clickImgToClose` setting
+ * [Changed] Removed bower.json and added package.json
+ * [Fixed] Video embeds for sites using HTTPS
+ * [Fixed] Added support for "youtube-nocookie" domain
+
 2014.05.15 - version 1.2.0
  * [Changed] iFrames and inline HTML now need a data-lightbox-type
  * [Changed] Nivo Lightbox now checks for content before overriding links

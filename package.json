@@ -11,5 +11,11 @@
     "url": "https://github.com/gilbitron/Nivo-Lightbox.git"
   },
   "license": "MIT",
-  "author": "Gilbert Pellegrom <gilbert@pellegrom.me>"
+  "author": "Gilbert Pellegrom <gilbert@pellegrom.me>",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  }
 }

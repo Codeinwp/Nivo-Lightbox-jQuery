@@ -1,5 +1,10 @@
 *** Nivo Lightbox Changelog ***
 
+2016.10.04 - version 1.3.1
+ * [New] Added Gulpfile and minified JS + CSS
+ * [Changed] Moved nivo-lightbox.min.js to "dist" folder
+ * [Fixed] Version header info
+
 2016.10.04 - version 1.3.0
  * [New] Added `beforePrev` and `beforeNext` callbacks to allow custom transitions
  * [New] Added `clickImgToClose` setting

@@ -1,5 +1,5 @@
 /*
- * Nivo Lightbox v1.2.0
+ * Nivo Lightbox v1.3.1
  * http://dev7studios.com/nivo-lightbox
  *
  * Copyright 2013, Dev7studios
@@ -103,7 +103,7 @@
                     currentLink = galleryItems.eq(index - 1);
                     if(!$(currentLink).length) currentLink = galleryItems.last();
                     $.when($this.options.beforePrev.call(this, [ currentLink ])).done(function(){
-                        $this.processContent(content, currentLink); 
+                        $this.processContent(content, currentLink);
                         $this.options.onPrev.call(this, [ currentLink ]);
                     });
                 });
@@ -115,7 +115,7 @@
                     currentLink = galleryItems.eq(index + 1);
                     if(!$(currentLink).length) currentLink = galleryItems.first();
                     $.when($this.options.beforeNext.call(this, [ currentLink ])).done(function(){
-                        $this.processContent(content, currentLink); 
+                        $this.processContent(content, currentLink);
                         $this.options.onNext.call(this, [ currentLink ]);
                     });
                 });
@@ -354,7 +354,7 @@
                     }
                 });
             }
-            
+
             close.on('click', function(e){
                 e.preventDefault();
                 $this.destructLightbox();

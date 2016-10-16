@@ -25,7 +25,10 @@
             onPrev: function(element){},
             beforeNext: function(element){},
             onNext: function(element){},
-            errorMessage: 'The requested content cannot be loaded. Please try again later.'
+            errorMessage: 'The requested content cannot be loaded. Please try again later.',
+            buttonPrev: 'Previous',
+            buttonNext: 'Next',
+            buttonClose: 'Close'
         };
 
     function NivoLightbox(element, options){
@@ -325,8 +328,8 @@
             var overlay = $('<div>', { 'class': 'nivo-lightbox-overlay nivo-lightbox-theme-'+ this.options.theme +' nivo-lightbox-effect-'+ this.options.effect });
             var wrap = $('<div>', { 'class': 'nivo-lightbox-wrap' });
             var content = $('<div>', { 'class': 'nivo-lightbox-content' });
-            var nav = $('<a href="#" class="nivo-lightbox-nav nivo-lightbox-prev">Previous</a><a href="#" class="nivo-lightbox-nav nivo-lightbox-next">Next</a>');
-            var close = $('<a href="#" class="nivo-lightbox-close" title="Close">Close</a>');
+            var nav = $('<a href="#" class="nivo-lightbox-nav nivo-lightbox-prev" title="'+ this.options.buttonPrev +'">'+ this.options.buttonPrev +'</a><a href="#" class="nivo-lightbox-nav nivo-lightbox-next" title="'+ this.options.buttonNext +'">'+ this.options.buttonNext +'</a>');
+            var close = $('<a href="#" class="nivo-lightbox-close" title="'+ this.options.buttonClose +'">'+ this.options.buttonClose +'</a>');
             var title = $('<div>', { 'class': 'nivo-lightbox-title-wrap' });
 
             var isMSIE = /*@cc_on!@*/0;

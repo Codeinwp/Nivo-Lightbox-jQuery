@@ -18,4 +18,5 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0"
   }
+  "main": "nivo-lightbox.js"
 }
